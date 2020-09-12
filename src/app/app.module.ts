@@ -17,7 +17,7 @@ import { TabBarComponent } from './modules/tab-bar/tab-bar.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    TabBarComponent
+    TabBarComponent,
     LoginComponent,
     RegistreComponent,
     DatapickerComponent
