@@ -2,26 +2,28 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import {LoginComponent} from './modules/login/login.component';
+import {HttpClientModule} from '@angular/common/http';
+import {AppRouter} from './modules/app.router';
+import {CommonModule} from '@angular/common';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RegistreComponent } from './registre/registre.component';
-import {MatDatepickerModule, MatFormFieldModule, MatInputModule, MatSelectModule, MatSortModule, MatTableModule} from '@angular/material';
-import { DatapickerComponent } from './datapicker/datapicker.component';
+import {SharedModule} from './modules/shared.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistreComponent,
-    DatapickerComponent
+    LoginComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatTableModule,
-    MatSortModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatSelectModule,
-    MatDatepickerModule
+    HttpClientModule,
+    SharedModule,
+    AppRouter,
   ],
   providers: [],
   bootstrap: [AppComponent]

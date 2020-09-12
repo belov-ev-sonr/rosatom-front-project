@@ -1,0 +1,43 @@
+<div class="main_container form-group">
+  <div class="login_form">
+    <form [formGroup]="loginData" (ngSubmit)="login()">
+      <div class="head_label">Вход для пользователей</div>
+
+      <div>
+        <mat-form-field appearance="legacy" class="form-field">
+          <mat-label>Электронная почта</mat-label>
+          <input matInput
+                 type="email"
+                 class="input"
+                 autofocus
+                 placeholder="Email"
+                 formControlName="email"
+                 required/>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field appearance="legacy" class="form-field">
+          <mat-label>Пароль</mat-label>
+          <input matInput
+                 type="password"
+                 class="input"
+                 placeholder="Password"
+                 formControlName="password"
+                 required/>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <button mat-button
+                color="primary"
+                class="button_accept"
+                type="submit"
+                [disabled]="!loginData.valid || loadData">
+          Войти
+        </button>
+      </div>
+
+    </form>
+  </div>
+</div>
