@@ -9,6 +9,8 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {SharedModule} from './modules/shared.module';
+import {RegistreComponent} from './registre/registre.component';
+import {DatapickerComponent} from './datapicker/datapicker.component';
 import { TabBarComponent } from './modules/tab-bar/tab-bar.component';
 
 @NgModule({
@@ -16,6 +18,9 @@ import { TabBarComponent } from './modules/tab-bar/tab-bar.component';
     AppComponent,
     LoginComponent,
     TabBarComponent
+    LoginComponent,
+    RegistreComponent,
+    DatapickerComponent
   ],
   imports: [
     CommonModule,
