@@ -1,7 +1,8 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {MatSort, MatTableDataSource} from '@angular/material';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatSort, MatTableDataSource} from '@angular/material';
 import {XlsxReaderService} from '../modules/excel-parser/service/xlsx-reader.service';
 import {XlsxParserService} from '../modules/excel-parser/service/xlsx-parser.service';
+import {FormControl} from '@angular/forms';
 
 
 export interface PeriodicElement {
@@ -44,7 +45,6 @@ const ELEMENT_DATA: PeriodicElement[] = [
 })
 export class RegistreComponent implements OnInit, AfterViewInit {
 
-
   foods: Food[] = [
     {value: 'steak-0', viewValue: 'RUR'},
     {value: 'pizza-1', viewValue: 'EUR'},
@@ -72,7 +72,7 @@ export class RegistreComponent implements OnInit, AfterViewInit {
   dataRegistry = [{inn: '1234567890',
                   kpp: '12345679',
                   name: 'АО Организация Росатома',
-                  is_filial: 'го',
+                  is_filial: 'ФЛ',
                   type_of_contract: 'Депозит',
                   date_of_signing: '2020-01-01',
                   date_start: '2020-01-02',
@@ -81,22 +81,27 @@ export class RegistreComponent implements OnInit, AfterViewInit {
                   currency: 'RUR',
                   amount: '10000',
                   bic_of_bank: '42202837',
+                  AccountBalanceCurrency: 'RUR',
                   name_of_bank: 'Банк ВТБ  (ПАО)',
+                  id_bank_account: '1234567890',
                   comment: null,
                   balance: '20000'},
+
                  {inn: '1857248',
                   kpp: '17499236',
                   name: 'АО Организация Росатома',
-                  is_filial: 'го',
+                  is_filial: 'ГО',
                   type_of_contract: 'Депозит',
                   date_of_signing: '2020-01-01',
                   date_start: '2020-01-02',
                   date_end: '2020-02-02',
                   interest_rate: '3.65',
-                  currency: 'RUR',
+                  currency: 'EUR',
                   amount: '20000',
                   bic_of_bank: '2135013',
+                  AccountBalanceCurrency: 'RUR',
                   name_of_bank: 'Сбербанк  (ПАО)',
+                  id_bank_account: '1234567890',
                   comment: null,
                   balance: '1000'}];
 
