@@ -20,10 +20,10 @@ import {SharedModule} from './modules/shared.module';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     SharedModule,
     AppRouter,
-    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

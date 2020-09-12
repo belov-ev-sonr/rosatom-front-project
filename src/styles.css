@@ -1,8 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+@import '../node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .main_container{
     background: linear-gradient(-45deg,#e057bca6,#1e1359)!important;
+}
+.button_accept {
+    height: 40px;
+    width: 120px;
+    font-size: 20px;
+    background-color: #393f9a;
+    margin: 5px;
+}
+
+button, label, div, span{
+    font-family: Roboto;
+    font-size: 18px;
+}
+
+
+input, .input {
+    outline: none;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 40px;
+    padding: 0 5px !important;
+    border: 1px solid #474747;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, .45);
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 0.5px;
+    transition: border 0.2s ease-in-out;
+}
+
+.input:active,
+.input:focus {
+    border-color: #dfd2fb;
 }
