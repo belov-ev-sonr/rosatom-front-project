@@ -1,0 +1,23 @@
+<div>
+  <form [formGroup]="loginData" >
+    <div>Вход</div>
+
+    <div>
+      <div>Электронная почта</div>
+      <input class="form-control"
+             type="email"
+             autofocus
+             placeholder="Email"
+             formControlName="email" required/>
+    </div>
+
+    <div>
+      <div>Пароль</div>
+      <input class="form-control"
+             type="password"
+             placeholder="Password"
+             formControlName="password"
+             required/>
+    </div>
+  </form>
+</div>
