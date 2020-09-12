@@ -9,11 +9,15 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {SharedModule} from './modules/shared.module';
+import {RegistreComponent} from './registre/registre.component';
+import {DatapickerComponent} from './datapicker/datapicker.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    RegistreComponent,
+    DatapickerComponent
   ],
   imports: [
     CommonModule,
