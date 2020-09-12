@@ -12,6 +12,7 @@ import {SharedModule} from './modules/shared.module';
 import {RegistreComponent} from './registre/registre.component';
 import {DatapickerComponent} from './datapicker/datapicker.component';
 import { TabBarComponent } from './modules/tab-bar/tab-bar.component';
+import {AuthService} from './modules/auth/service/auth.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,9 @@ import { TabBarComponent } from './modules/tab-bar/tab-bar.component';
     SharedModule,
     AppRouter,
   ],
-  providers: [],
+  providers: [
+    AuthService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

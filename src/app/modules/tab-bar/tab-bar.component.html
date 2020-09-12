@@ -12,9 +12,16 @@
   </div>
 
   <div class="setting">
-    <button mat-button >
+    <button mat-button [matMenuTriggerFor]="account_setting">
       <mat-icon placeholder="Личный кабинет">account_circle</mat-icon>
     </button>
+
+    <mat-menu #account_setting yPosition="above">
+      <button mat-menu-item>Личный кабинет</button>
+      <button mat-menu-item>Инструкция</button>
+      <button mat-menu-item>Поддержка</button>
+      <button mat-menu-item (click)="logout()">Выход</button>
+    </mat-menu>
   </div>
 
 

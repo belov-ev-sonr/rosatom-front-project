@@ -1,6 +1,7 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {LoginModel} from './models/login.model';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AuthService} from '../auth/service/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,10 @@ export class LoginComponent implements OnInit {
   public loadData = false;
 
   constructor(private formBuilder: FormBuilder,
-              private cdRef: ChangeDetectorRef) { }
+              private cdRef: ChangeDetectorRef,
+              private auth: AuthService,
+              private router: Router
+  ) { }
 
   ngOnInit() {
     this.init();
@@ -34,7 +38,10 @@ export class LoginComponent implements OnInit {
     }
 
     this.loadData = true;
-
+    this.router.navigate(['/registre']);
+    // this.auth.login().subscribe(() => {
+    //
+    // })
   }
 
 }

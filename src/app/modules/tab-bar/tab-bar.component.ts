@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {AuthService} from '../auth/service/auth.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-tab-bar',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TabBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+      private auth: AuthService,
+      private router: Router
+  ) { }
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.router.navigate(['/login']);
+
+    // this.auth.logout().subscribe(() => {
+    // });
   }
 
 }
