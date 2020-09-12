@@ -74,6 +74,6 @@ import { BufferDealsComponent } from './buffer-deals/buffer-deals.component';
     MatIconModule,
     A11yModule
   ],
-  declarations: [ExcelParserComponent, BufferDealsComponent]
+  declarations: [BufferDealsComponent]
 })
 export class SharedModule {}
