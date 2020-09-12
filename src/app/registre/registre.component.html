@@ -1,0 +1,100 @@
+<table  class="header-table" border="1" cellspacing="0" style="width: 300em">
+  <thead>
+    <tr>
+      <td rowspan="4">№</td>
+      <td colspan="10">К О Н Т Р А Г Е Н Т Ы  / О С Т А Т К И     Н А    С Ч Е Т А Х</td>
+      <td colspan="7">РАЗМЕЩЕННЫЕ   И  ПРИВЛЕЧЕННЫЕ  СРЕДСТВА</td>
+    </tr>
+    <tr>
+      <td rowspan="3">ID</td>
+      <td rowspan="3">ИНН</td>
+      <td rowspan="3">КПП</td>
+      <td rowspan="3">Наименование организации</td>
+      <td rowspan="3">ГО/ФЛ</td>
+      <td rowspan="3">БИК банка</td>
+      <td rowspan="3">Наименование банка</td>
+      <td rowspan="3">Комментарий</td>
+      <td rowspan="2">Валюта</td>
+      <td rowspan="2">сумма в валюте счета</td>
+<!--      <td colspan="7"></td>-->
+    </tr>
+    <tr>
+      <td rowspan="1">ВИД договора</td>
+      <td rowspan="3">Дата заключения договора</td>
+      <td rowspan="3">Дата начала действия договора</td>
+      <td rowspan="3">Дата окончания договора</td>
+      <td rowspan="3">Расчетная ставка годовых, %</td>
+      <td>Валюта</td>
+      <td rowspan="3">Сумма</td>
+    </tr>
+    <tr>
+      <td>международный код</td>
+      <td>Остаток на счете</td>
+      <td></td>
+      <td>международный  код</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="width: 2em">
+      </td>
+      <td style="width: 6em;">
+      </td>
+      <td style="width: 6em;"></td>
+      <td style="width: 6em;"></td>
+      <td style="width: 15em;">
+        <input class="input-register-table"
+               matInput
+               placeholder="Наименование организации"
+               value="">
+      </td>
+      <td style="width: 3em;"></td>
+      <td style="width: 15em;">
+        <input class="input-register-table"
+               matInput
+               placeholder="БИК банка"
+               value="">
+      </td>
+      <td style="width: 15em;">
+        <input class="input-register-table"
+               matInput
+               placeholder="Наименование банка"
+               value="">
+      </td>
+      <td style="width: 15em;">
+          <textarea class="input-register-table"
+                    matInput>
+
+          </textarea>
+      </td>
+      <td style="width: 5em;">
+        <mat-select>
+          <mat-option *ngFor="let food of foods" [value]="food.value">
+            {{food.viewValue}}
+          </mat-option>
+        </mat-select>
+      </td>
+      <td style="width: 10em;">
+        <input class="input-register-table"
+               matInput
+               placeholder="Остаток на счете"
+               value="">
+      </td>
+      <td style="width: 10em;">
+        <mat-select>
+          <mat-option *ngFor="let contract of typeContract" [value]="contract.value">
+            {{contract.viewValue}}
+          </mat-option>
+        </mat-select>
+      </td>
+      <td style="width: 10em;">
+        <app-datapicker></app-datapicker>
+      </td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
