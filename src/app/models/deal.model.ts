@@ -61,7 +61,7 @@ export class DealModel {
         deal.dateEndContract    = values[14];
         deal.calculatedRate     = values[15];
         deal.valuteCode2        = values[16];
-        deal.sum                = values[18];
+        deal.sum                = values[17];
 
         return deal;
     }
