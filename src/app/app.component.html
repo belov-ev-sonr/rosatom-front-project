@@ -1,3 +1,6 @@
 <main class="main_container">
+  <ng-container *ngIf="activeToolBar">
+    <app-tab-bar></app-tab-bar>
+  </ng-container>
   <router-outlet></router-outlet>
 </main>

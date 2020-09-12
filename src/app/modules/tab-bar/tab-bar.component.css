@@ -1,0 +1,16 @@
+.tab_wrapper{
+    display: table;
+    flex-direction: column;
+    position: fixed;
+    z-index: 1;
+}
+
+.tab_wrapper div{
+    display: table-cell;
+}
+.menu_tab{
+    width: 99%;
+}
+.setting{
+
+}

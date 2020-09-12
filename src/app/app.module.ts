@@ -9,11 +9,13 @@ import {CommonModule} from '@angular/common';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {SharedModule} from './modules/shared.module';
+import { TabBarComponent } from './modules/tab-bar/tab-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    TabBarComponent
   ],
   imports: [
     CommonModule,
