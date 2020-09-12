@@ -24,12 +24,18 @@
           padding: 0 !important;
           align-items: center !important;
       ::ng-deep .mat-form-field-infix {
+        input{
+          color: maroon;
+        }
             padding: 0 !important;
             font-size: 13px !important;
             border-top: 0 !important;
           }
       ::ng-deep .mat-form-field-suffix {
             font-size: 13px !important;
+        button{
+          color: magenta;
+        }
           }
       }
     ::ng-deep .mat-form-field-underline {
@@ -37,10 +43,16 @@
         }
     ::ng-deep .mat-form-field-subscript-wrapper{
           display: none !important;
-        }}}
-//.example-full-width {
-//  mat-form-field-wrapper{
-//  }
-//  width: 100%;
-//}
-//.example-full-width {}
+        }
+  }
+}
+
+.property-tabs {
+  ::ng-deep .mat-tab-label-content {
+    color: navy;
+  }
+}
+
+::ng-deep .mat-select-value span {
+  color: maroon;
+}

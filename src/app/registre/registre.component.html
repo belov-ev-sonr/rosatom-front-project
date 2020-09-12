@@ -1,126 +1,187 @@
 <div style="width: 100%;
-    height: 100%;
     overflow: auto;">
-  <table  class="header-table" border="1" cellspacing="0" style="width: 300em; color: aliceblue; font-size: 13px;">
-    <thead>
+  <mat-tab-group class="property-tabs">
+    <mat-tab label="Контрагенты / остатки на счетах">
+      <table  class="header-table"
+              border="1"
+              cellspacing="0"
+              style="width: 100%; font-size: 13px;">
+      <thead style="color: aliceblue; background: linear-gradient(-45deg,#FF00AD,#590052)">
       <tr>
-        <td rowspan="4">№</td>
-        <td colspan="10">К О Н Т Р А Г Е Н Т Ы  / О С Т А Т К И     Н А    С Ч Е Т А Х</td>
-        <td colspan="7">РАЗМЕЩЕННЫЕ   И  ПРИВЛЕЧЕННЫЕ  СРЕДСТВА</td>
+        <td rowspan="3">№</td>
       </tr>
       <tr>
-        <td rowspan="3">ID</td>
-        <td rowspan="3">ИНН</td>
-        <td rowspan="3">КПП</td>
-        <td rowspan="3">Наименование организации</td>
-        <td rowspan="3">ГО/ФЛ</td>
-        <td rowspan="3">БИК банка</td>
-        <td rowspan="3">Наименование банка</td>
-        <td rowspan="3">Комментарий</td>
-        <td rowspan="2">Валюта</td>
-        <td rowspan="2">сумма в валюте счета</td>
-  <!--      <td colspan="7"></td>-->
-      </tr>
-      <tr>
-        <td rowspan="1">ВИД договора</td>
-        <td rowspan="3">Дата заключения договора</td>
-        <td rowspan="3">Дата начала действия договора</td>
-        <td rowspan="3">Дата окончания договора</td>
-        <td rowspan="3">Расчетная ставка годовых, %</td>
+        <td rowspan="2">ID</td>
+        <td rowspan="2">ИНН</td>
+        <td rowspan="2">КПП</td>
+        <td rowspan="2">Наименование организации</td>
+        <td rowspan="2">ГО/ФЛ</td>
+        <td rowspan="2">БИК банка</td>
+        <td rowspan="2">Наименование банка</td>
+        <td rowspan="2">Комментарий</td>
         <td>Валюта</td>
-        <td rowspan="3">Сумма</td>
+        <td>сумма в валюте счета</td>
       </tr>
       <tr>
-        <td>международный код</td>
-        <td>Остаток на счете</td>
-        <td></td>
         <td>международный  код</td>
+        <td>Остаток на счете</td>
       </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td style="width: 2em">
-        </td>
-        <td style="width: 6em;">
-        </td>
-        <td style="width: 6em;"></td>
-        <td style="width: 6em;"></td>
-        <td style="width: 15em;">
-          <input class="input-register-table"
-                 matInput
-                 placeholder="Наименование организации"
-                 value="">
-        </td>
-        <td style="width: 3em;"></td>
-        <td style="width: 15em;">
-          <input class="input-register-table"
-                 matInput
-                 placeholder="БИК банка"
-                 value="">
-        </td>
-        <td style="width: 15em;">
-          <input class="input-register-table"
-                 matInput
-                 placeholder="Наименование банка"
-                 value="">
-        </td>
-        <td style="width: 15em;">
-            <textarea class="input-register-table"
-                      matInput>
+      </thead>
+      <tbody style="color: maroon">
+      <ng-container *ngFor="let data of dataRegistry; let i = index">
+        <tr>
+          <td style="width: 2em">
+          </td>
+          <td style="width: 6em;">
+            <input class="input-register-table"
+                   matInput
+                   placeholder="ID"
+                   value="">
+          </td>
+          <td style="width: 6em;">
+            <input class="input-register-table"
+                   matInput
+                   placeholder="ИНН"
+                   value="{{data.inn}}">
+          </td>
+          <td style="width: 6em;">
+            <input class="input-register-table"
+                   matInput
+                   placeholder="КПП"
+                   value="{{data.kpp}}">
+          </td>
+          <td style="width: 15em;">
+            <input class="input-register-table"
+                   matInput
+                   placeholder="Наименование организации"
+                   value="{{data.name}}">
+          </td>
+          <td style="width: 4em;">
+            <mat-select>
+              <mat-option *ngFor="let goFl of goFl" [value]="data.is_filial">
+                {{goFl.viewValue}}
+              </mat-option>
+            </mat-select>
+          </td>
+          <td style="width: 15em;">
+            <input class="input-register-table"
+                   matInput
+                   placeholder="БИК банка"
+                   value="">
+          </td>
+          <td style="width: 15em;">
+            <input class="input-register-table"
+                   matInput
+                   placeholder="Наименование банка"
+                   value="">
+          </td>
+          <td style="width: 10em;">
+              <textarea class="input-register-table"
+                        matInput>
 
-            </textarea>
-        </td>
-        <td style="width: 5em;">
-          <mat-select>
-            <mat-option *ngFor="let food of foods" [value]="food.value">
-              {{food.viewValue}}
-            </mat-option>
-          </mat-select>
-        </td>
-        <td style="width: 10em;">
-          <input class="input-register-table"
-                 matInput
-                 placeholder="Остаток на счете"
-                 value="">
-        </td>
-        <td style="width: 10em;">
-          <mat-select>
-            <mat-option *ngFor="let contract of typeContract" [value]="contract.value">
-              {{contract.viewValue}}
-            </mat-option>
-          </mat-select>
-        </td>
-        <td style="width: 10em;">
-          <mat-form-field class="properties-datapicker" appearance="fill">
-            <!-- #docregion toggle -->
-            <input matInput [matDatepicker]="dateConclusion">
-            <mat-datepicker-toggle matSuffix [for]="dateConclusion"></mat-datepicker-toggle>
-            <mat-datepicker #dateConclusion></mat-datepicker>
-            <!-- #enddocregion toggle -->
-          </mat-form-field>
-        </td>
-        <td style="width: 10em;">
-          <mat-form-field class="properties-datapicker" appearance="fill">
-            <!-- #docregion toggle -->
-            <input matInput [matDatepicker]="dateStartContract">
-            <mat-datepicker-toggle matSuffix [for]="dateStartContract"></mat-datepicker-toggle>
-            <mat-datepicker #dateStartContract></mat-datepicker>
-            <!-- #enddocregion toggle -->
-          </mat-form-field>
-        </td>
-        <td style="width: 10em;">
-          <mat-form-field class="properties-datapicker" appearance="fill">
-            <!-- #docregion toggle -->
-            <input matInput [matDatepicker]="dateEndContract">
-            <mat-datepicker-toggle matSuffix [for]="dateEndContract"></mat-datepicker-toggle>
-            <mat-datepicker #dateEndContract></mat-datepicker>
-            <!-- #enddocregion toggle -->
-          </mat-form-field>
-        </td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-    </tbody>
-  </table>
+              </textarea>
+          </td>
+          <td style="width: 5em;">
+            <mat-select>
+              <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{food.viewValue}}
+              </mat-option>
+            </mat-select>
+          </td>
+          <td style="width: 10em;">
+            <input class="input-register-table"
+                   matInput
+                   placeholder="Остаток на счете"
+                   value="">
+          </td>
+        </tr>
+      </ng-container>
+      </tbody>
+    </table></mat-tab>
+    <mat-tab label="Размещенные и привлеченные средства">
+      <table  class="header-table"
+              border="1"
+              cellspacing="0"
+              style="width: 100%; color: aliceblue; font-size: 13px;">
+        <thead style="background: linear-gradient(-45deg,#FF00AD,#590052)">
+        <tr>
+          <td rowspan="3">№</td>
+        </tr>
+        <tr>
+          <td rowspan="1">ВИД договора</td>
+          <td rowspan="3">Дата заключения договора</td>
+          <td rowspan="3">Дата начала действия договора</td>
+          <td rowspan="3">Дата окончания договора</td>
+          <td rowspan="3">Расчетная ставка годовых, %</td>
+          <td>Валюта</td>
+          <td rowspan="3">Сумма</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>международный код</td>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr>
+          <td></td>
+          <td style="width: 10em;">
+            <mat-select>
+              <mat-option *ngFor="let contract of typeContract" [value]="contract.value">
+                {{contract.viewValue}}
+              </mat-option>
+            </mat-select>
+          </td>
+          <td style="width: 10em;">
+            <mat-form-field class="properties-datapicker" appearance="fill">
+              <!-- #docregion toggle -->
+              <input matInput [matDatepicker]="dateConclusion">
+              <mat-datepicker-toggle matSuffix [for]="dateConclusion"></mat-datepicker-toggle>
+              <mat-datepicker #dateConclusion></mat-datepicker>
+              <!-- #enddocregion toggle -->
+            </mat-form-field>
+          </td>
+          <td style="width: 10em;">
+            <mat-form-field class="properties-datapicker" appearance="fill">
+              <!-- #docregion toggle -->
+              <input matInput [matDatepicker]="dateStartContract">
+              <mat-datepicker-toggle matSuffix [for]="dateStartContract"></mat-datepicker-toggle>
+              <mat-datepicker #dateStartContract></mat-datepicker>
+              <!-- #enddocregion toggle -->
+            </mat-form-field>
+          </td>
+          <td style="width: 10em;">
+            <mat-form-field class="properties-datapicker" appearance="fill">
+              <!-- #docregion toggle -->
+              <input matInput [matDatepicker]="dateEndContract">
+              <mat-datepicker-toggle matSuffix [for]="dateEndContract"></mat-datepicker-toggle>
+              <mat-datepicker #dateEndContract></mat-datepicker>
+              <!-- #enddocregion toggle -->
+            </mat-form-field>
+          </td>
+          <td style="width: 15em;">
+            <input class="input-register-table"
+                   matInput
+                   placeholder="Расчетная ставка годовых, %"
+                   value="">
+          </td>
+          <td style="width: 5em;">
+            <mat-select>
+              <mat-option *ngFor="let food of foods" [value]="food.value">
+                {{food.viewValue}}
+              </mat-option>
+            </mat-select>
+          </td>
+          <td>
+            <input class="input-register-table"
+                   matInput
+                   placeholder="Сумма"
+                   value="">
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </mat-tab>
+  </mat-tab-group>
+
 </div>

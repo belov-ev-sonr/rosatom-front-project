@@ -6,7 +6,7 @@
 }
 .content{
     width: 100%;
-    height: 70%;
+    height: 89%;
     padding: 10px 0;
-    background-color: #ddf1c2;
+    background: linear-gradient(-45deg, #0068FF,#73C8FF);
 }
