@@ -1,3 +1,169 @@
-<p>
-  buffer-deals works!
-</p>
+<div>
+  <button mat-button class="prime" (click)="startInputChange()">Импорт Excel</button>
+  <input id="upload_file"
+         style="display: none"
+         (change)="importXlsx($event)"
+          type="file"/>
+  <button mat-button class="prime" (click)="saveBuffer($event)">Сохранить данные</button>
+</div>
+
+<div class="table_wrapper" style="width: 100%;
+    height: 100%;
+    overflow: auto;">
+  <mat-tab-group class="property-tabs">
+    <mat-tab label="Контрагенты / остатки на счетах">
+      <table  class="header-table table-registry"
+              border="1"
+              cellspacing="0"
+              style="width: 100%; font-size: 13px;">
+        <thead style="color: aliceblue; background: linear-gradient(-45deg,#FF00AD,#590052)">
+        <tr>
+          <td rowspan="3">№</td>
+        </tr>
+        <tr>
+          <td rowspan="2">ID</td>
+          <td rowspan="2">ИНН</td>
+          <td rowspan="2">КПП</td>
+          <td rowspan="2">Наименование организации</td>
+          <td rowspan="2">ГО/ФЛ</td>
+          <td rowspan="2">БИК банка</td>
+          <td rowspan="2">Наименование банка</td>
+          <td rowspan="2">Комментарий</td>
+          <td>Валюта</td>
+          <td>сумма в валюте счета</td>
+        </tr>
+        <tr>
+          <td>международный  код</td>
+          <td>Остаток на счете</td>
+        </tr>
+        </thead>
+        <tbody style="color: maroon">
+        <ng-container *ngFor="let deal of dealRows; let i = index">
+          <tr>
+            <td style="width: 2em">{{i +1}}</td>
+            <td style="width: 6em;">
+              <input class="input-register-table"
+                     matInput
+                     [(ngModel)]="deal.id">
+            </td>
+            <td style="width: 6em;">
+              <input class="input-register-table"
+                     matInput
+                     [(ngModel)]="deal.inn">
+            </td>
+            <td style="width: 6em;">
+              <input class="input-register-table"
+                     matInput
+                     [(ngModel)]="deal.kpp">
+            </td>
+            <td style="width: 15em;">
+              <input class="input-register-table"
+                     matInput
+                     [(ngModel)]="deal.organizationName">
+            </td>
+            <td style="width: 4em;">
+              <input class="input-register-table"
+                     matInput
+                     [(ngModel)]="deal.organizationName">
+            </td>
+            <td style="width: 15em;">
+              <input class="input-register-table"
+                     matInput
+                     [(ngModel)]="deal.bikBang">
+            </td>
+            <td style="width: 15em;">
+              <input class="input-register-table"
+                     matInput
+                     [(ngModel)]="deal.bankName">
+            </td>
+            <td style="width: 10em;">
+              <textarea class="input-register-table"
+
+              [(ngModel)]="deal.comment">
+
+              </textarea>
+            </td>
+            <td style="width: 5em;">
+              <mat-select>
+                <mat-option *ngFor="let currency of currenciesList" [value]="currency.id">
+                  {{currency.nameEn}}
+                </mat-option>
+              </mat-select>
+            </td>
+            <td style="width: 10em;">
+              <input class="input-register-table"
+                     matInput
+                     [(ngModel)]="deal.balance">
+            </td>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+    </mat-tab>
+    <mat-tab label="Размещенные и привлеченные средства">
+      <table  class="header-table table-registry"
+              border="1"
+              cellspacing="0"
+              style="width: 100%; color: aliceblue; font-size: 13px;">
+        <thead style="background: linear-gradient(-45deg,#FF00AD,#590052)">
+        <tr>
+        </tr>
+        <tr>
+          <td rowspan="1">ВИД договора</td>
+          <td rowspan="3">Дата заключения договора</td>
+          <td rowspan="3">Дата начала действия договора</td>
+          <td rowspan="3">Дата окончания договора</td>
+          <td rowspan="3">Расчетная ставка годовых, %</td>
+          <td>Валюта</td>
+          <td rowspan="3">Сумма</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>международный код</td>
+        </tr>
+        </thead>
+
+        <tbody>
+        <ng-container *ngFor="let deal of dealRows; let i = index">
+          <tr>
+            <td style="width: 10em;">
+              <input class="input-register-table"
+                     matInput
+                     [(ngModel)]="deal.typeContract">
+            </td>
+            <td style="width: 10em;">
+              <input class="input-register-table"
+                     matInput
+                     [(ngModel)]="deal.dateContract">
+            </td>
+            <td style="width: 10em;">
+              <input class="input-register-table"
+                     [(ngModel)]="deal.dataStartContract">
+            </td>
+            <td style="width: 10em;">
+              <input class="input-register-table"
+                     matInput
+                     [(ngModel)]="deal.dateEndContract">
+            </td>
+            <td style="width: 15em;">
+              <input class="input-register-table"
+                     matInput
+                     [(ngModel)]="deal.calculatedRate">
+            </td>
+            <td style="width: 5em;">
+              <input class="input-register-table"
+                     matInput
+                     [(ngModel)]="deal.valuteCode2">
+            </td>
+            <td>
+              <input class="input-register-table"
+                     matInput
+                     [(ngModel)]="deal.sum">
+            </td>
+          </tr>
+        </ng-container>
+        </tbody>
+      </table>
+    </mat-tab>
+  </mat-tab-group>
+</div>

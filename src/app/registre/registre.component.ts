@@ -2,6 +2,7 @@ import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort, MatTableDataSource} from '@angular/material';
 import {XlsxReaderService} from '../modules/excel-parser/service/xlsx-reader.service';
 import {XlsxParserService} from '../modules/excel-parser/service/xlsx-parser.service';
+import {Router} from '@angular/router';
 
 
 export interface PeriodicElement {
@@ -66,7 +67,8 @@ export class RegistreComponent implements OnInit, AfterViewInit {
 
   constructor(
       private xlsxReader: XlsxReaderService,
-      private xlsxParser: XlsxParserService
+      private xlsxParser: XlsxParserService,
+      private router: Router
   ) { }
   // constructor() { }
   dataRegistry = [{inn: '1234567890',
@@ -117,6 +119,14 @@ export class RegistreComponent implements OnInit, AfterViewInit {
           console.log('more list!!');
       }
       const parsedData = this.xlsxParser.readReport(Object.values(workBook.Sheets)[0]);
+      if (parsedData.length) {
+          this.router.navigate(['/buffer-deal']);
+      }
     });
   }
+
+  startInputChange() {
+    document.getElementById('upload_file').click();
+  }
+
 }

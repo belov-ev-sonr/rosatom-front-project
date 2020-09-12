@@ -1,6 +1,6 @@
 <div>
   <div>
-    <button mat-button class="prime" (click)="document.getElementById('upload_file').click()">Импорт Excel</button>
+    <button mat-button class="prime" (click)="startInputChange()">Импорт Excel</button>
     <input id="upload_file"
            style="display:none"
            (change)="importXlsx($event)"

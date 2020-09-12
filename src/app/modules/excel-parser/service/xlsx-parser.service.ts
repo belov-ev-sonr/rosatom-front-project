@@ -7,12 +7,15 @@ import {DealModel} from '../../../models/deal.model';
 })
 export class XlsxParserService {
 
+  public lastParsedData: DealModel[];
+
   private readonly START_ROWS_TABLE = 10;
   constructor() { }
 
   public readReport(sheet: XLSX.WorkSheet): DealModel[] {
-    const jsonSheet = XLSX.utils.sheet_to_json(sheet, {rawNumbers: true, blankrows: true});
+    const jsonSheet = XLSX.utils.sheet_to_json(sheet, {rawNumbers: true, blankrows: true, defval: ''});
     const tableData = this.readTable(jsonSheet);
+    this.lastParsedData = tableData;
     return tableData;
   }
 
@@ -32,10 +35,12 @@ export class XlsxParserService {
   }
 
   private isStartTable(indexRow: number): boolean {
-    return indexRow >= this.START_ROWS_TABLE;
+    return indexRow < this.START_ROWS_TABLE;
   }
 
   private isEndTable(row: any): boolean {
-    return !Object.values(row).length;
+    const values = Object.values(row);
+    const result =  values.every(el => !el);
+    return result;
   }
 }

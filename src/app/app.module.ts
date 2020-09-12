@@ -13,6 +13,7 @@ import {RegistreComponent} from './registre/registre.component';
 import {DatapickerComponent} from './datapicker/datapicker.component';
 import { TabBarComponent } from './modules/tab-bar/tab-bar.component';
 import {AuthService} from './modules/auth/service/auth.service';
+import {BufferDealsComponent} from './modules/buffer-deals/buffer-deals.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import {AuthService} from './modules/auth/service/auth.service';
     LoginComponent,
     TabBarComponent,
     LoginComponent,
+    BufferDealsComponent,
     RegistreComponent,
     DatapickerComponent
   ],

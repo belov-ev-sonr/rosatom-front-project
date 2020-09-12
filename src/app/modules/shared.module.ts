@@ -32,7 +32,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {CdkTableModule} from '@angular/cdk/table';
 import {A11yModule} from '@angular/cdk/a11y';
 import {NgModule} from '@angular/core';
-import { BufferDealsComponent } from './buffer-deals/buffer-deals.component';
 
 @NgModule({
   exports: [
@@ -74,6 +73,6 @@ import { BufferDealsComponent } from './buffer-deals/buffer-deals.component';
     MatIconModule,
     A11yModule
   ],
-  declarations: [BufferDealsComponent]
+  declarations: []
 })
 export class SharedModule {}

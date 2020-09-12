@@ -1,0 +1,62 @@
+.header-table {
+thead {
+tr{
+td{
+    text-align: center;
+}
+}
+}
+}
+.input-register-table {
+    width: inherit;
+    outline: unset;
+    border: unset;
+}
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+.properties-datapicker{
+::ng-deep .mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+::ng-deep .mat-form-field-flex{
+    padding: 0 !important;
+    align-items: center !important;
+::ng-deep .mat-form-field-infix {
+input{
+    color: maroon;
+}
+padding: 0 !important;
+font-size: 13px !important;
+border-top: 0 !important;
+}
+::ng-deep .mat-form-field-suffix {
+    font-size: 13px !important;
+button{
+    color: magenta;
+}
+}
+}
+::ng-deep .mat-form-field-underline {
+    display: none !important;
+}
+::ng-deep .mat-form-field-subscript-wrapper{
+    display: none !important;
+}
+}
+}
+
+.property-tabs {
+::ng-deep .mat-tab-label-content {
+    color: navy;
+}
+}
+
+::ng-deep .mat-select-value span {
+    color: maroon;
+}
+
+.table-registry{
+    padding: 0 10px;
+}
