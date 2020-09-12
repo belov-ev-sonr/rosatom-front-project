@@ -1,7 +1,8 @@
 .tab_wrapper{
     display: table;
+    padding: 15px;
     flex-direction: column;
-    position: fixed;
+    position: inherit;
     z-index: 1;
 }
 
