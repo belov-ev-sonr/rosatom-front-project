@@ -19,6 +19,10 @@ interface TypeContract {
   value: string;
   viewValue: string;
 }
+interface GOFL {
+  value: string;
+  viewValue: string;
+}
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
@@ -50,6 +54,10 @@ export class RegistreComponent implements OnInit, AfterViewInit {
     {value: 'steak-0', viewValue: 'Договор'},
     {value: 'pizza-1', viewValue: 'Приговор'}
   ];
+  goFl: GOFL[] = [
+    {value: 'steak-0', viewValue: 'ГО'},
+    {value: 'pizza-1', viewValue: 'ФЛ'}
+  ];
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   displayedColumn = {Weight: 'weight', Symbol: 'symbol'};
   dataSource = new MatTableDataSource(ELEMENT_DATA);
@@ -60,6 +68,37 @@ export class RegistreComponent implements OnInit, AfterViewInit {
       private xlsxReader: XlsxReaderService,
       private xlsxParser: XlsxParserService
   ) { }
+  // constructor() { }
+  dataRegistry = [{inn: '1234567890',
+                  kpp: '12345679',
+                  name: 'АО Организация Росатома',
+                  is_filial: 'го',
+                  type_of_contract: 'Депозит',
+                  date_of_signing: '2020-01-01',
+                  date_start: '2020-01-02',
+                  date_end: '2020-02-02',
+                  interest_rate: '5.65',
+                  currency: 'RUR',
+                  amount: '10000',
+                  bic_of_bank: '42202837',
+                  name_of_bank: 'Банк ВТБ  (ПАО)',
+                  comment: null,
+                  balance: '20000'},
+                 {inn: '1857248',
+                  kpp: '17499236',
+                  name: 'АО Организация Росатома',
+                  is_filial: 'го',
+                  type_of_contract: 'Депозит',
+                  date_of_signing: '2020-01-01',
+                  date_start: '2020-01-02',
+                  date_end: '2020-02-02',
+                  interest_rate: '3.65',
+                  currency: 'RUR',
+                  amount: '20000',
+                  bic_of_bank: '2135013',
+                  name_of_bank: 'Сбербанк  (ПАО)',
+                  comment: null,
+                  balance: '1000'}];
 
   @ViewChild(MatSort) sort: MatSort;
   ngOnInit() {
