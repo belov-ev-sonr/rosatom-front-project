@@ -2,3 +2,7 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.main_container{
+    background: linear-gradient(-45deg,#e057bca6,#1e1359)!important;
+}

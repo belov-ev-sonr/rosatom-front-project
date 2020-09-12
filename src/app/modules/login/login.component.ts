@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {LoginModel} from './models/login.model';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,14 +9,32 @@ import {LoginModel} from './models/login.model';
 })
 export class LoginComponent implements OnInit {
 
-  public loginData: LoginModel;
-  public email: string;
-  public password: string;
+  public loginData: FormGroup;
 
-  constructor() { }
+  public loadData = false;
+
+  constructor(private formBuilder: FormBuilder,
+              private cdRef: ChangeDetectorRef) { }
 
   ngOnInit() {
-    this.loginData = new LoginModel();
+    this.init();
+  }
+
+  private init() {
+    this.loginData = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
+    this.cdRef.markForCheck();
+  }
+
+  public login() {
+    if (!this.loginData.valid) {
+      return;
+    }
+
+    this.loadData = true;
+
   }
 
 }
