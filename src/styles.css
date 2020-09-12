@@ -1,11 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-@import '../node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css';
+@import '../node_modules/@angular/material/prebuilt-themes/purple-green.css';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .main_container{
-    background: linear-gradient(-45deg,#e057bca6,#1e1359)!important;
+    background: linear-gradient(-45deg,#121b86a6,#d7ffd0)!important;
 }
 .button_accept {
     height: 40px;
