@@ -1,8 +1,15 @@
-<div style="width: 100%;
+<div>
+  <div>
+    <button mat-button (click)="document.getElementById('upload_file').click()">Импорт Excel</button>
+    <input id="upload_file"
+           (change)="importXlsx($event)"
+           type="file"/>
+  </div>
+  <div style="width: 100%;
     height: 100%;
     overflow: auto;">
-  <table  class="header-table" border="1" cellspacing="0" style="width: 300em; color: aliceblue; font-size: 13px;">
-    <thead>
+    <table  class="header-table" border="1" cellspacing="0" style="width: 300em; color: aliceblue; font-size: 13px;">
+      <thead>
       <tr>
         <td rowspan="4">№</td>
         <td colspan="10">К О Н Т Р А Г Е Н Т Ы  / О С Т А Т К И     Н А    С Ч Е Т А Х</td>
@@ -19,7 +26,7 @@
         <td rowspan="3">Комментарий</td>
         <td rowspan="2">Валюта</td>
         <td rowspan="2">сумма в валюте счета</td>
-  <!--      <td colspan="7"></td>-->
+        <!--      <td colspan="7"></td>-->
       </tr>
       <tr>
         <td rowspan="1">ВИД договора</td>
@@ -36,8 +43,8 @@
         <td></td>
         <td>международный  код</td>
       </tr>
-    </thead>
-    <tbody>
+      </thead>
+      <tbody>
       <tr>
         <td style="width: 2em">
         </td>
@@ -121,6 +128,7 @@
         <td></td>
         <td></td>
       </tr>
-    </tbody>
-  </table>
+      </tbody>
+    </table>
+  </div>
 </div>

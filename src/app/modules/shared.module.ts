@@ -32,6 +32,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {CdkTableModule} from '@angular/cdk/table';
 import {A11yModule} from '@angular/cdk/a11y';
 import {NgModule} from '@angular/core';
+import { ExcelParserComponent } from './excel-parser/excel-parser.component';
 
 @NgModule({
   exports: [
@@ -72,6 +73,7 @@ import {NgModule} from '@angular/core';
     MatTooltipModule,
     MatIconModule,
     A11yModule
-  ]
+  ],
+  declarations: [ExcelParserComponent]
 })
 export class SharedModule {}

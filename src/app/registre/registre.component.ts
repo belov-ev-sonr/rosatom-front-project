@@ -1,5 +1,7 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MatSort, MatTableDataSource} from '@angular/material';
+import {XlsxReaderService} from '../modules/excel-parser/service/xlsx-reader.service';
+import {XlsxParserService} from '../modules/excel-parser/service/xlsx-parser.service';
 
 
 export interface PeriodicElement {
@@ -52,14 +54,30 @@ export class RegistreComponent implements OnInit, AfterViewInit {
   displayedColumn = {Weight: 'weight', Symbol: 'symbol'};
   dataSource = new MatTableDataSource(ELEMENT_DATA);
   fields = Object.keys(this.displayedColumn);
-  // constructor() { }
+
+
+  constructor(
+      private xlsxReader: XlsxReaderService,
+      private xlsxParser: XlsxParserService
+  ) { }
 
   @ViewChild(MatSort) sort: MatSort;
   ngOnInit() {
-    debugger;
   }
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
   }
 
+  public importXlsx(event): void {
+    const fileName = event.srcElement.value;
+    if (!fileName) {
+      return;
+    }
+    this.xlsxReader.getDataOfExelFile(event).subscribe((workBook) => {
+      if (!Object.values(workBook.Sheets).length) {
+          console.log('more list!!');
+      }
+      const parsedData = this.xlsxParser.readReport(Object.values(workBook.Sheets)[0]);
+    });
+  }
 }
