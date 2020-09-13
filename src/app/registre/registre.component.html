@@ -2,10 +2,35 @@
   <div style="background: #004087;
               height: 66px;
               align-items: center;
-              display: flex;
+              display: grid;
+              grid-template-columns: 1fr 1fr 140px;
               font-size: 25px;
               color: #FFFFFF;">
     <div style="margin-left: 22px;"> Информация о финансовой деятельности</div>
+    <button style="justify-self: end;
+                   margin-right: 10px;
+                   background: #00990B;
+                   border-radius: 20px;
+                   border-color: #00990B;
+                   outline: azure;
+                   color: #FFFFFF;
+                   font-size: 16px;
+                   padding: 8px;"
+            (click)="saveData()">
+      Сохранить
+    </button>
+    <button style="justify-self: end;
+                   margin-right: 10px;
+                   background: #399DD8;
+                   border-radius: 20px;
+                   border-color: #399DD8;
+                   outline: azure;
+                   color: #FFFFFF;
+                   font-size: 16px;
+                   padding: 8px;"
+            (click)="addRow()">
+      Новая сделка
+    </button>
   </div>
 
   <div style="width: 100%;
@@ -55,36 +80,38 @@
       </thead>
         <tbody>
           <ng-container *ngFor="let data of dataRegistry; let i = index">
-            <tr>
+            <tr class="hover-row">
               <td style="text-align: center;
+              position: relative;
                width: 3em;
                 color: #000000;
                  background: #F6F6F6">
                 {{i + 1}}
+                <button (click)="deleteRow(data.id)" class="ninja-button">Х</button>
               </td>
               <td style="width: 6em;background: #7FAABF; opacity: 0.3; color: #000000;">
                 <input class="input-register-table"
                        matInput
                        placeholder="ID"
-                       value="{{data.id_bank_account}}">
+                       [(ngModel)]="data.id_bank_account">
               </td>
               <td style="width: 6em;background: #7FAABF; opacity: 0.3; color: #000000;">
                 <input class="input-register-table"
                        matInput
                        placeholder="ИНН"
-                       value="{{data.inn}}">
+                       [(ngModel)]="data.inn">
               </td>
               <td style="width: 6em;background: #7FAABF;opacity: 0.3; color: #000000;">
                 <input class="input-register-table"
                        matInput
                        placeholder="КПП"
-                       value="{{data.kpp}}">
+                       [(ngModel)]="data.kpp">
               </td>
               <td style="width: 15em; color: #000000">
                 <input class="input-register-table"
                        matInput
                        placeholder="Наименование организации"
-                       value="{{data.name}}">
+                       [(ngModel)]="data.name">
               </td>
               <td style="width: 4em;">
                 <mat-select [(value)]="data.is_filial">
@@ -97,17 +124,17 @@
                 <input class="input-register-table"
                        matInput
                        placeholder="БИК банка"
-                       value="{{data.bic_of_bank}}">
+                       [(ngModel)]="data.bic_of_bank">
               </td>
               <td style="width: 15em;">
                 <input class="input-register-table"
                        matInput
                        placeholder="Наименование банка"
-                       value="{{data.name_of_bank}}">
+                       [(ngModel)]="data.name_of_bank">
               </td>
               <td style="width: 7em;">
                 <mat-form-field class="input-register-table">
-                  <textarea matInput>{{data.comment}}</textarea>
+                  <textarea [(ngModel)]="data.comment" matInput>{{data.comment}}</textarea>
                 </mat-form-field>
               </td>
               <td style="width: 3em;">
@@ -121,7 +148,7 @@
                 <input class="input-register-table"
                        matInput
                        placeholder="Остаток на счете"
-                       value="{{data.balance}}">
+                       [(ngModel)]="data.balance">
               </td>
             </tr>
           </ng-container>
@@ -155,27 +182,28 @@
         </thead>
         <tbody style="color: maroon;">
           <ng-container *ngFor="let data of dataRegistry; let i = index">
-            <tr>
-              <td style="width: 3em; text-align: center; color: #000000; background: #F6F6F6">
+            <tr class="hover-row">
+              <td style="width: 3em; position: relative; text-align: center; color: #000000; background: #F6F6F6">
               {{i + 1}}
+                <button (click)="deleteRow(data.id)" class="ninja-button">Х</button>
               </td>
               <td style="width: 6em;background: #7FAABF; opacity: 0.3; color: #000000;">
                 <input class="input-register-table"
                        matInput
                        placeholder="ID"
-                       value="{{data.id_bank_account}}">
+                       [(ngModel)]="data.id_bank_account">
               </td>
               <td style="width: 6em;background: #7FAABF; opacity: 0.3; color: #000000;">
                 <input class="input-register-table"
                        matInput
                        placeholder="ИНН"
-                       value="{{data.inn}}">
+                       [(ngModel)]="data.inn">
               </td>
               <td style="width: 6em;background: #7FAABF;opacity: 0.3; color: #000000;">
                 <input class="input-register-table"
                        matInput
                        placeholder="КПП"
-                       value="{{data.kpp}}">
+                       [(ngModel)]="data.kpp">
               </td>
               <td style="width: 8em;">
                 <mat-select [(value)]="data.type_of_contract">
@@ -187,7 +215,7 @@
               <td style="width: 6em;">
                 <mat-form-field class="properties-datapicker" appearance="fill">
                   <!-- #docregion toggle -->
-                  <input matInput [matDatepicker]="dateConclusion"  [value]="data.date_of_signing">
+                  <input matInput [matDatepicker]="dateConclusion" [(ngModel)]="data.date_of_signing" [value]="data.date_of_signing">
                   <mat-datepicker-toggle matSuffix [for]="dateConclusion"></mat-datepicker-toggle>
                   <mat-datepicker #dateConclusion></mat-datepicker>
                   <!-- #enddocregion toggle -->
@@ -196,7 +224,7 @@
               <td style="width: 6em;">
                 <mat-form-field class="properties-datapicker" appearance="fill">
                   <!-- #docregion toggle -->
-                  <input matInput [matDatepicker]="dateStartContract" [value]="data.date_start">
+                  <input matInput [matDatepicker]="dateStartContract" [(ngModel)]="data.date_of_signing" [value]="data.date_start">
                   <mat-datepicker-toggle matSuffix [for]="dateStartContract"></mat-datepicker-toggle>
                   <mat-datepicker #dateStartContract></mat-datepicker>
                   <!-- #enddocregion toggle -->
@@ -205,7 +233,7 @@
               <td style="width: 6em;">
                 <mat-form-field class="properties-datapicker" appearance="fill">
                   <!-- #docregion toggle -->
-                  <input matInput [matDatepicker]="dateEndContract" [value]="data.date_end">
+                  <input matInput [matDatepicker]="dateEndContract" [(ngModel)]="data.date_of_signing" [value]="data.date_end">
                   <mat-datepicker-toggle matSuffix [for]="dateEndContract"></mat-datepicker-toggle>
                   <mat-datepicker #dateEndContract></mat-datepicker>
                   <!-- #enddocregion toggle -->
@@ -215,10 +243,10 @@
                 <input class="input-register-table"
                        matInput
                        placeholder="Расчетная ставка годовых, %"
-                       value="{{data.interest_rate}}">
+                       [(ngModel)]="data.interest_rate">
               </td>
               <td style="width: 3em;">
-                <mat-select [value]="data.AccountBalanceCurrency">
+                <mat-select [(value)]="data.AccountBalanceCurrency">
                   <mat-option *ngFor="let food of foods" [value]="food.viewValue">
                     {{food.viewValue}}
                   </mat-option>
@@ -228,7 +256,7 @@
                 <input class="input-register-table"
                        matInput
                        placeholder="Сумма"
-                       value="{{data.balance}}">
+                       [(ngModel)]="data.balance">
               </td>
             </tr>
           </ng-container>

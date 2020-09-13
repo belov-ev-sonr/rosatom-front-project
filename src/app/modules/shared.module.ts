@@ -32,6 +32,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {CdkTableModule} from '@angular/cdk/table';
 import {A11yModule} from '@angular/cdk/a11y';
 import {NgModule} from '@angular/core';
+import { ReferenceDataComponent } from './reference-data/reference-data.component';
 
 @NgModule({
   exports: [
@@ -73,6 +74,6 @@ import {NgModule} from '@angular/core';
     MatIconModule,
     A11yModule
   ],
-  declarations: []
+  declarations: [ReferenceDataComponent]
 })
 export class SharedModule {}
