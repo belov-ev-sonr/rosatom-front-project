@@ -1,10 +1,27 @@
-<div>
-  <button mat-button class="prime" (click)="startInputChange()">Импорт Excel</button>
+<div style="position: relative">
+  <button style="background: #FFFFFF;
+                 border-radius: 0;"
+          mat-button
+          class="prime"
+          (click)="startInputChange()">
+    Импорт Excel
+  </button>
   <input id="upload_file"
          style="display: none"
          (change)="importXlsx($event)"
           type="file"/>
-  <button mat-button class="prime" (click)="saveBuffer($event)">Сохранить данные</button>
+  <button style="background: #FFFFFF;
+                 border-radius: 0;"
+          mat-button
+          class="prime"
+          (click)="saveBuffer($event)">Сохранить данные</button>
+  <button style="position: absolute;
+  cursor: default;
+    width: calc(100% - 338px);
+                 background: #FFFFFF;
+                 border-radius: 0;"
+          disabled
+          mat-button>&nbsp;</button>
 </div>
 
 <div class="table_wrapper" style="width: 100%;
@@ -13,50 +30,52 @@
   <mat-tab-group class="property-tabs">
     <mat-tab label="Контрагенты / остатки на счетах">
       <table  class="header-table table-registry"
-              border="1"
               cellspacing="0"
-              style="width: 100%; font-size: 13px;">
-        <thead style="color: aliceblue; background: linear-gradient(-45deg,#FF00AD,#590052)">
-        <tr>
+              style="width: 100%;background: #ffffff; color: #000000;  font-size: 13px; overflow: hidden;">
+        <thead style="color: aliceblue">
+        <tr style="color: #4F4F4F; background: #F6F6F6">
           <td rowspan="3">№</td>
         </tr>
         <tr>
-          <td rowspan="2">ID</td>
-          <td rowspan="2">ИНН</td>
-          <td rowspan="2">КПП</td>
-          <td rowspan="2">Наименование организации</td>
-          <td rowspan="2">ГО/ФЛ</td>
-          <td rowspan="2">БИК банка</td>
-          <td rowspan="2">Наименование банка</td>
-          <td rowspan="2">Комментарий</td>
-          <td>Валюта</td>
-          <td>сумма в валюте счета</td>
+          <td rowspan="2" style="background: #7FAABF; color: #FFFFFF;">ID</td>
+          <td rowspan="2" style="background: #7FAABF; color: #FFFFFF;">ИНН</td>
+          <td rowspan="2" style="background: #7FAABF; color: #FFFFFF;">КПП</td>
+          <td style=" background: #AB7FBF;" rowspan="2">Наименование организации</td>
+          <td style=" background: #AB7FBF;" rowspan="2">ГО/ФЛ</td>
+          <td style=" background: #AB7FBF;" rowspan="2">БИК банка</td>
+          <td style=" background: #AB7FBF;" rowspan="2">Наименование банка</td>
+          <td style=" background: #AB7FBF;" rowspan="2">Комментарий</td>
+          <td style=" background: #80459a;">Валюта</td>
+          <td style=" background: #80459a;">сумма в валюте счета</td>
         </tr>
         <tr>
-          <td>международный  код</td>
-          <td>Остаток на счете</td>
+          <td style=" background: #AB7FBF;">международный  код</td>
+          <td style=" background: #AB7FBF;">Остаток на счете</td>
         </tr>
         </thead>
-        <tbody style="color: maroon">
+        <tbody>
         <ng-container *ngFor="let deal of dealRows; let i = index">
           <tr>
-            <td style="width: 2em">{{i +1}}</td>
-            <td style="width: 6em;">
+            <td style="text-align: center;
+               width: 3em;
+                color: #000000;
+                 background: #F6F6F6">{{i +1}}</td>
+            <td style="width: 6em;background: #7FAABF; opacity: 0.3; color: #000000;">
               <input class="input-register-table"
                      matInput
                      [(ngModel)]="deal.id">
             </td>
-            <td style="width: 6em;">
+            <td style="width: 6em;background: #7FAABF; opacity: 0.3; color: #000000;">
               <input class="input-register-table"
                      matInput
                      [(ngModel)]="deal.inn">
             </td>
-            <td style="width: 6em;">
+            <td style="width: 6em;background: #7FAABF;opacity: 0.3; color: #000000;">
               <input class="input-register-table"
                      matInput
                      [(ngModel)]="deal.kpp">
             </td>
-            <td style="width: 15em;">
+            <td style="width: 15em; color: #000000">
               <input class="input-register-table"
                      matInput
                      [(ngModel)]="deal.organizationName">
@@ -66,24 +85,24 @@
                      matInput
                      [(ngModel)]="deal.organizationName">
             </td>
-            <td style="width: 15em;">
+            <td style="width: 6em;">
               <input class="input-register-table"
                      matInput
                      [(ngModel)]="deal.bikBang">
             </td>
-            <td style="width: 15em;">
+            <td style="width: 6em;">
               <input class="input-register-table"
                      matInput
                      [(ngModel)]="deal.bankName">
             </td>
-            <td style="width: 10em;">
+            <td style="width: 7em;">
               <textarea class="input-register-table"
 
               [(ngModel)]="deal.comment">
 
               </textarea>
             </td>
-            <td style="width: 5em;">
+            <td style="width: 3em;">
               <mat-select>
                 <mat-option *ngFor="let currency of currenciesList" [value]="currency.id">
                   {{currency.nameEn}}
@@ -102,55 +121,75 @@
     </mat-tab>
     <mat-tab label="Размещенные и привлеченные средства">
       <table  class="header-table table-registry"
-              border="1"
               cellspacing="0"
-              style="width: 100%; color: aliceblue; font-size: 13px;">
-        <thead style="background: linear-gradient(-45deg,#FF00AD,#590052)">
+              style="width: 100%;
+    background: #ffffff; color: #000000; font-size: 13px; overflow: hidden;">
+        <thead>
         <tr>
         </tr>
         <tr>
-          <td rowspan="1">ВИД договора</td>
-          <td rowspan="3">Дата заключения договора</td>
-          <td rowspan="3">Дата начала действия договора</td>
-          <td rowspan="3">Дата окончания договора</td>
-          <td rowspan="3">Расчетная ставка годовых, %</td>
-          <td>Валюта</td>
-          <td rowspan="3">Сумма</td>
+          <td rowspan="3" style="background: #7FAABF; color: #FFFFFF;">ID</td>
+          <td rowspan="3" style="background: #7FAABF; color: #FFFFFF;">ИНН</td>
+          <td rowspan="3" style="background: #7FAABF; color: #FFFFFF;">КПП</td>
+          <td style="background: #399DD8;" rowspan="1">ВИД договора</td>
+          <td style="background: #399DD8;" rowspan="3">Дата заключения договора</td>
+          <td style="background: #399DD8;" rowspan="3">Дата начала действия договора</td>
+          <td style="background: #399DD8;" rowspan="3">Дата окончания договора</td>
+          <td style="background: #399DD8;" rowspan="3">Расчетная ставка годовых, %</td>
+          <td style="background: #276184;">Валюта</td>
+          <td style="background: #399DD8;" rowspan="3">Сумма</td>
         </tr>
         <tr>
-          <td></td>
-          <td>международный код</td>
+          <td style="background: #399DD8;">международный код</td>
         </tr>
         </thead>
 
         <tbody>
         <ng-container *ngFor="let deal of dealRows; let i = index">
           <tr>
-            <td style="width: 10em;">
+            <td style="width: 6em;background: #7FAABF; opacity: 0.3; color: #000000;">
+              <input class="input-register-table"
+                     matInput
+                     placeholder="ID"
+                     value="{{deal.id_bank_account}}">
+            </td>
+            <td style="width: 6em;background: #7FAABF; opacity: 0.3; color: #000000;">
+              <input class="input-register-table"
+                     matInput
+                     placeholder="ИНН"
+                     value="{{deal.inn}}">
+            </td>
+            <td style="width: 6em;background: #7FAABF;opacity: 0.3; color: #000000;">
+              <input class="input-register-table"
+                     matInput
+                     placeholder="КПП"
+                     value="{{deal.kpp}}">
+            </td>
+            <td style="width: 8em;">
               <input class="input-register-table"
                      matInput
                      [(ngModel)]="deal.typeContract">
             </td>
-            <td style="width: 10em;">
+            <td style="width: 6em;">
               <input class="input-register-table"
                      matInput
                      [(ngModel)]="deal.dateContract">
             </td>
-            <td style="width: 10em;">
+            <td style="width: 6em;">
               <input class="input-register-table"
                      [(ngModel)]="deal.dataStartContract">
             </td>
-            <td style="width: 10em;">
+            <td style="width: 6em;">
               <input class="input-register-table"
                      matInput
                      [(ngModel)]="deal.dateEndContract">
             </td>
-            <td style="width: 15em;">
+            <td style="width: 6em;">
               <input class="input-register-table"
                      matInput
                      [(ngModel)]="deal.calculatedRate">
             </td>
-            <td style="width: 5em;">
+            <td style="width: 3em;">
               <input class="input-register-table"
                      matInput
                      [(ngModel)]="deal.valuteCode2">
