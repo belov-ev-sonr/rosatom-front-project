@@ -4,6 +4,7 @@ import {XlsxReaderService} from '../modules/excel-parser/service/xlsx-reader.ser
 import {XlsxParserService} from '../modules/excel-parser/service/xlsx-parser.service';
 import {FormControl} from '@angular/forms';
 import {Router} from '@angular/router';
+import {GetRegistryDataService} from '../../service/get-registry-data.service';
 
 
 export interface PeriodicElement {
@@ -56,6 +57,7 @@ export class RegistreComponent implements OnInit, AfterViewInit {
   constructor(
       private xlsxReader: XlsxReaderService,
       private xlsxParser: XlsxParserService,
+      private getData: GetRegistryDataService,
       private router: Router
   ) { }
   // constructor() { }
@@ -97,8 +99,37 @@ export class RegistreComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatSort) sort: MatSort;
   ngOnInit() {
+    this.getDataRegistry();
   }
   ngAfterViewInit() {
+  }
+
+  public getDataRegistry() {
+    let arrINN = [];
+    this.getData.getData().subscribe((data) => {
+      // arrINN = Object.keys(data);
+      // arrINN.forEach((INN, index) => {
+      //   let test = [];
+      //   test.push({...data[INN].depositedMoney, ...data[INN].accountBalance, ...data[INN].infoOrg});
+      //   this.dataRegistry = [{inn: INN,
+      //                         kpp: data[INN].infoOrg.kpp,
+      //                         name: data[INN].infoOrg.name,
+      //                         is_filial: data[INN].infoOrg.is_filial,
+      //                         type_of_contract: data[INN].depositedMoney.is_filial,
+      //                         date_of_signing: data[INN].infoOrg.is_filial,
+      //                         date_start: data[INN].infoOrg.is_filial,
+      //                         date_end: data[INN].infoOrg.is_filial,
+      //                         interest_rate: data[INN].infoOrg.is_filial,
+      //                         currency: data[INN].infoOrg.is_filial,
+      //                         amount: data[INN].infoOrg.is_filial,
+      //                         bic_of_bank: data[INN].infoOrg.is_filial,
+      //                         AccountBalanceCurrency: data[INN].infoOrg.is_filial,
+      //                         name_of_bank: data[INN].infoOrg.is_filial,
+      //                         id_bank_account: data[INN].infoOrg.is_filial,
+      //                         comment: data[INN].infoOrg.is_filial,
+      //                         balance: data[INN].infoOrg.is_filial,}];
+      // });
+    });
   }
 
   public importXlsx(event): void {
