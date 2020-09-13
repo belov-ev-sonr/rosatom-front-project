@@ -8,9 +8,17 @@
   }
 }
 .input-register-table {
-  width: inherit;
-  outline: unset;
-  border: unset;
+  ::ng-deep .mat-form-field-underline {
+   bottom: -1px !important
+  }
+  ::ng-deep .mat-form-field-wrapper{
+    padding: 0;
+  }
+  ::ng-deep .mat-form-field-infix{
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
 }
 .example-form {
   min-width: 150px;
@@ -34,7 +42,7 @@
       ::ng-deep .mat-form-field-suffix {
             font-size: 13px !important;
         button{
-          color: magenta;
+          color: #399DD8;
         }
           }
       }

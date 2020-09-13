@@ -1,29 +1,42 @@
-<div class="tab_wrapper">
-  <div class="menu_tab">
-    <button mat-button routerLink="/registre">Сделки</button>
-    <button mat-button>раздел 1</button>
-    <button mat-button>Справочные данные</button>
-    <button mat-button>Администрирование</button>
-
-    <!--<mat-menu #reference yPosition="above">-->
-      <!--<button mat-menu-item>Раздел 1</button>-->
-      <!--<button mat-menu-item>Раздел 2</button>-->
-    <!--</mat-menu>-->
+<div style="background: #FFFFFF; position: relative">
+  <mat-button-toggle-group class="custom-menu" value="bold" name="fontStyle" aria-label="Font Style">
+    <mat-button-toggle value="bold" routerLink="/registre">Сделки</mat-button-toggle>
+    <mat-button-toggle value="italic">Справочные данные</mat-button-toggle>
+    <mat-button-toggle value="underline">Администрирование</mat-button-toggle>
+  </mat-button-toggle-group>
+  <div class="tab_wrapper">
+      <div>
+        иконка
+      </div>
+      <div>
+        Росатом
+      </div>
+      <div style="display: grid;
+                  width: 100%;
+                  justify-items: end;
+                  margin-right: 24px;
+                  font-size: 15px;">
+        <div style="font-size: 15px">Иванов Иван Иванович</div>
+        <div style="font-size: 15px">i.ivanov@mail.ru, +7(XXX) XXX-XX-XX</div>
+      </div>
+      <button mat-button>
+        <span class="material-icons"
+              placeholder="Личный кабинет">
+          account_circle
+        </span>
+      </button>
+      <div>
+        <span style="transform: rotate(90deg)" placeholder="Выход"
+              class="material-icons">
+          horizontal_rule
+        </span>
+      </div>
+      <button mat-button>
+        <span placeholder="Выход"
+              class="material-icons"
+              (click)="logout()">
+          elderly
+        </span>
+      </button>
   </div>
-
-  <div class="setting">
-    <button mat-button [matMenuTriggerFor]="account_setting">
-      <mat-icon placeholder="Личный кабинет">account_circle</mat-icon>
-    </button>
-
-    <mat-menu #account_setting yPosition="above">
-      <button mat-menu-item>Личный кабинет</button>
-      <button mat-menu-item>Инструкция</button>
-      <button mat-menu-item>Поддержка</button>
-      <button mat-menu-item (click)="logout()">Выход</button>
-    </mat-menu>
-  </div>
-
-
-
 </div>

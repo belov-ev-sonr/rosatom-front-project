@@ -3,6 +3,11 @@ thead {
 tr{
 td{
     text-align: center;
+  input{
+    margin: 0 !important;
+    padding: 0px !important;
+    border: 0 !important;
+  }
 }
 }
 }
@@ -59,4 +64,20 @@ button{
 
 .table-registry{
     padding: 0 10px;
+}
+
+td{
+  text-align: center;
+  input{
+    margin: 0 !important;
+    padding: 0px !important;
+    border: 0 !important;
+  }
+}
+tbody{
+  tr{
+    td{
+      color: #000000;
+    }
+  }
 }
