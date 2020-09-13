@@ -19,7 +19,13 @@ export class AuthService {
       private http: HttpClient,
       private authHttp: AuthHttpService,
       private router: Router
-  ) { }
+  ) {
+      this.setIsLogged();
+  }
+
+  private setIsLogged() {
+      this.isLogin = !!this.getToken();
+  }
 
   public login(loginData: LoginModel) {
     return this.authHttp.post(this.HOST + '/auth/login', loginData)

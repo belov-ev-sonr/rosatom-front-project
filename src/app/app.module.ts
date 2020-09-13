@@ -14,6 +14,8 @@ import {DatapickerComponent} from './datapicker/datapicker.component';
 import { TabBarComponent } from './modules/tab-bar/tab-bar.component';
 import {AuthService} from './modules/auth/service/auth.service';
 import {BufferDealsComponent} from './modules/buffer-deals/buffer-deals.component';
+import {AdministrationComponent} from './modules/administration/administration.component';
+import {UserEditComponent} from './modules/administration/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import {BufferDealsComponent} from './modules/buffer-deals/buffer-deals.componen
     LoginComponent,
     BufferDealsComponent,
     RegistreComponent,
-    DatapickerComponent
+    DatapickerComponent,
+    AdministrationComponent,
+    UserEditComponent
   ],
   imports: [
     CommonModule,
@@ -38,6 +42,7 @@ import {BufferDealsComponent} from './modules/buffer-deals/buffer-deals.componen
   providers: [
     AuthService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [UserEditComponent]
 })
 export class AppModule { }

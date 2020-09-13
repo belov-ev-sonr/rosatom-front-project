@@ -23,7 +23,6 @@ export class TabBarComponent implements OnInit {
     if (!user) {
       user = new UserModel();
     }
-    debugger;
     this.user = new UserModel();
   }
 

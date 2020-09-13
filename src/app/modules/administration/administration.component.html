@@ -1,0 +1,38 @@
+<div class="admin_wrapper">
+  <div>
+    <button mat-button (click)="createUser()">Добавить пользователя</button>
+  </div>
+
+  <div class="table_wrapper">
+    <table class="header-table"
+           cellspacing="0"
+           style="width: 100%; font-size: 13px; overflow: hidden;">
+      <thead style="color: aliceblue;">
+        <tr>
+          <td>№</td>
+          <td>Имя пользователя</td>
+          <td>Фамилия Имя Отчество</td>
+          <td>Телефон</td>
+          <td>Email</td>
+          <td></td>
+        </tr>
+      </thead>
+        <ng-container *ngFor="let user of usersList; index as indexRow">
+          <tr style="color: #4F4F4F; background: #F6F6F6">
+            <td>{{indexRow + 1}}</td>
+            <td>{{user.login}}</td>
+            <td>{{user.firstName}} {{user.secondName}} {{user.middleName}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.email}}</td>
+            <td>
+              <button mat-button
+                      placeholder="Редактировать"
+                      (click)="editUser(user.id)">
+                <mat-icon>edit</mat-icon>
+              </button>
+            </td>
+          </tr>
+        </ng-container>
+    </table>
+  </div>
+</div>
