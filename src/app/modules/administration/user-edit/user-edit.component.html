@@ -1,0 +1,80 @@
+<div class="target_wrapper_edit">
+  
+  <form [formGroup]="userGroup"
+        (ngSubmit)="saveUser($event)">
+
+    <div>
+      <mat-form-field class="cell_field">
+        <mat-label>Имя пользователя</mat-label>
+        <input matInput
+               formControlName="login"/>
+      </mat-form-field>
+    </div>
+    
+    <div>
+      <mat-form-field class="cell_field">
+        <mat-label>Фамилия</mat-label>
+        <input matInput
+               formControlName="secondName"/>
+      </mat-form-field>
+
+      <mat-form-field class="cell_field">
+        <mat-label>Имя</mat-label>
+        <input matInput
+               formControlName="firstName"/>
+      </mat-form-field>  
+    </div>
+
+    <div>
+      <mat-form-field class="cell_field">
+        <mat-label>Отчество</mat-label>
+        <input matInput
+               formControlName="middleName"/>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="cell_field">
+        <mat-label>Номер телефона</mat-label>
+        <input matInput
+               formControlName="phone"/>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="cell_field">
+        <mat-label>Email</mat-label>
+        <input matInput
+               formControlName="email"/>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="cell_field">
+        <mat-label>Пароль</mat-label>
+        <input matInput
+               type="password"
+               formControlName="password"/>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field class="cell_field">
+        <mat-label>Повторите пароль</mat-label>
+        <input matInput
+               type="password"
+               formControlName="confirmPassword"/>
+      </mat-form-field>
+    </div>
+
+
+    <div>
+      <button mat-button
+              style="margin: 0 40%; width: 150px; height: 48px;"
+              type="submit"
+              class="button_accept">
+        {{userId ? 'Редактировать' : 'Создать'}}
+      </button>
+    </div>
+  </form>
+</div>

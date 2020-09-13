@@ -2,7 +2,7 @@
   <mat-button-toggle-group class="custom-menu" value="bold" name="fontStyle" aria-label="Font Style">
     <mat-button-toggle value="bold" routerLink="/registre">Сделки</mat-button-toggle>
     <mat-button-toggle value="italic">Справочные данные</mat-button-toggle>
-    <mat-button-toggle value="underline">Администрирование</mat-button-toggle>
+    <mat-button-toggle value="underline" routerLink="/administration">Администрирование</mat-button-toggle>
   </mat-button-toggle-group>
   <div class="tab_wrapper">
       <div style="margin-left: 10px;">
@@ -15,8 +15,8 @@
                   justify-items: end;
                   margin-right: 24px;
                   font-size: 15px;">
-        <div style="font-size: 15px">Иванов Иван Иванович</div>
-        <div style="font-size: 15px">i.ivanov@mail.ru, +7(XXX) XXX-XX-XX</div>
+        <div style="font-size: 15px">{{user.firstName}} {{user.secondName}} {{user.middleName}}</div>
+        <div style="font-size: 15px">{{user.email}}, {{user.phone}}</div>
       </div>
       <button mat-button>
         <span class="material-icons"

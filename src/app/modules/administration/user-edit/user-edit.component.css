@@ -1,0 +1,17 @@
+.target_wrapper_edit{
+    width: 100%;
+    height: 100%;
+}
+::ng-deep .mat-dialog-container{
+    background: #799fb1 !important;
+}
+
+.target_wrapper_edit > form > div {
+    height: 70px;
+}
+
+.cell_field{
+    display: table-cell;
+    text-align: center;
+    width: 10%;
+}

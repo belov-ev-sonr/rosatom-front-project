@@ -4,12 +4,14 @@ import {NgModule} from '@angular/core';
 import {RegistreComponent} from '../registre/registre.component';
 import {BufferDealsComponent} from './buffer-deals/buffer-deals.component';
 import {AuthGuardService} from '../guard/auth-guard.service';
+import {AdministrationComponent} from './administration/administration.component';
 
 const routers: Routes = [
     {path: 'login', component: LoginComponent},
     {path: '', component: LoginComponent},
     {path: 'registre', component: RegistreComponent, canActivate: [AuthGuardService]},
-    {path: 'buffer-deal', component: BufferDealsComponent, canActivate: [AuthGuardService]}
+    {path: 'buffer-deal', component: BufferDealsComponent, canActivate: [AuthGuardService]},
+    {path: 'administration', component: AdministrationComponent, canActivate: [AuthGuardService]}
 ];
 
 @NgModule({

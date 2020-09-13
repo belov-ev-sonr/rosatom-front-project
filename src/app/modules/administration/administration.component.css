@@ -1,0 +1,14 @@
+.admin_wrapper{
+    margin: 40px 0;
+}
+.table_wrapper{
+    background: #004087;
+    height: 66px;
+    align-items: center;
+    display: flex;
+    font-size: 25px;
+    color: #FFFFFF;
+}
+::ng-deep .panelClass{
+    background-color: #fff;
+}
