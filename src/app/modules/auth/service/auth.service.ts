@@ -3,7 +3,6 @@ import {HttpClient} from '@angular/common/http';
 import {LoginModel} from '../../login/models/login.model';
 import {AuthHttpService} from '../../../services/auth-http.service';
 import {map, mergeMap, tap} from 'rxjs/operators';
-import {Observable} from 'rxjs';
 import {UserModel} from '../../../models/user.model';
 import {Router} from '@angular/router';
 
@@ -13,6 +12,8 @@ import {Router} from '@angular/router';
 export class AuthService {
 
   private readonly HOST = 'http://localhost:80';
+
+  public isLogin = false;
 
   constructor(
       private http: HttpClient,
@@ -38,6 +39,7 @@ export class AuthService {
 
   private saveUser(user: UserModel): void {
     localStorage.setItem('user', JSON.stringify(user));
+    this.isLogin = true;
   }
 
   private saveToken(data: any): void {
@@ -47,6 +49,7 @@ export class AuthService {
   public logout() {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
+    this.isLogin = false;
     this.router.navigate(['/login']);
   }
 

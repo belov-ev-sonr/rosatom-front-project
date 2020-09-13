@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../auth/service/auth.service';
+import {UserModel} from '../../models/user.model';
 
 @Component({
   selector: 'app-tab-bar',
@@ -8,9 +9,22 @@ import {AuthService} from '../auth/service/auth.service';
 })
 export class TabBarComponent implements OnInit {
 
-  constructor(private auth: AuthService) { }
+  public user: UserModel;
+
+  constructor(private auth: AuthService) {
+  }
 
   ngOnInit() {
+    this.user = this.auth.getUser();
+  }
+
+  private init(): void {
+    let user = this.auth.getUser();
+    if (!user) {
+      user = new UserModel();
+    }
+    debugger;
+    this.user = new UserModel();
   }
 
   logout() {

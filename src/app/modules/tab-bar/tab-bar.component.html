@@ -16,8 +16,8 @@
                   justify-items: end;
                   margin-right: 24px;
                   font-size: 15px;">
-        <div style="font-size: 15px">Иванов Иван Иванович</div>
-        <div style="font-size: 15px">i.ivanov@mail.ru, +7(XXX) XXX-XX-XX</div>
+        <div style="font-size: 15px">{{user.firstName}} {{user.secondName}} {{user.middleName}}</div>
+        <div style="font-size: 15px">{{user.email}}, {{user.phone}}</div>
       </div>
       <button mat-button>
         <span class="material-icons"
